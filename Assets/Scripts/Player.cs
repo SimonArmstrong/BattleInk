@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
     public GameObject shield;
+    public GameObject dashWallObject;
     public float shieldGrowSpeed;
 
     public float speed;
@@ -36,6 +37,9 @@ public class Player : MonoBehaviour {
 
         if (dashDistance > 0) {
             dashDistance -= Time.deltaTime;
+            Instantiate(dashWallObject, 
+                new Vector3(transform.position.x, transform.position.y - 4, transform.position.z - 2),
+                Quaternion.identity);
         }
 
         if (dashDistance <= 0) {
